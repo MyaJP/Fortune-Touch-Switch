@@ -128,9 +128,8 @@ jobs:
   publish:
     name: Publish ${{ matrix.loader }} ${{ matrix.mc }}
     needs: [build, release]
-    # Runs only after MODRINTH_ID / CURSEFORGE_ID (repository variables) and
-    # MODRINTH_TOKEN / CURSEFORGE_TOKEN (repository secrets) are set.
-    if: (startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish)) && (vars.MODRINTH_ID != '' || vars.CURSEFORGE_ID != '')
+    # Needs the MODRINTH_TOKEN / CURSEFORGE_TOKEN repository secrets.
+    if: (startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish))
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -174,9 +173,9 @@ jobs:
           path: jar
       - uses: Kir-Antipov/mc-publish@v3.3
         with:
-          modrinth-id: ${{ vars.MODRINTH_ID }}
+          modrinth-id: iHZU5S45
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ vars.CURSEFORGE_ID }}
+          curseforge-id: 1786268
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           files: jar/*.jar
           name: Fortune Touch Switch ${{ steps.v.outputs.version }} (${{ matrix.loader }} ${{ matrix.mc }})
