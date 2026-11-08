@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.miyabi.fortunetouchswitch.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "ItemFeatureRendererMixin",
+    "ItemModelResolverMixin",
+    "ItemStackRenderStateMixin",
+    "ItemSubmitMixin",
+    "ReloadableResourceManagerMixin",
+    "RenderSetupMixin",
+    "RenderTypeAccessor"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}

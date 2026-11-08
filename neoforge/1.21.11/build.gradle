@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = rootProject.file('../../VERSION').text.trim()
+group = 'com.miyabi'
+base { archivesName = 'fortune_touch_switch-neoforge-1.21.11' }
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+tasks.withType(JavaCompile).configureEach { it.options.encoding = 'UTF-8' }
+
+sourceSets.main.java.srcDirs = ['../../shared/common/java', '../../shared/neo/java', '../../shared/glint26/java', '../../shared/glint26tex_blaze/java', '../../shared/glintstorage/java', '../../shared/glint26111/java']
+sourceSets.main.resources.srcDirs = ['../../shared/res', '../../shared/glint26111/resources']
+sourceSets.main.java.exclude '**/mixin/ItemSubmitMixin.java'
+
+neoForge {
+    enable {
+        version = '21.11.48'
+        disableRecompilation = true
+    }
+}
+
+processResources {
+    def p = [version: project.version, mc: '1.21.11', neo_min: '21.11']
+    inputs.properties p
+    from('../../shared') { include 'LICENSE' }
+    from('../../shared') { include 'neoforge-glint.mods.toml'; rename { 'neoforge.mods.toml' }; into 'META-INF'; expand p }
+}

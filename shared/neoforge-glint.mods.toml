@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+modId = "fortune_touch_switch"
+version = "${version}"
+displayName = "Fortune Touch Switch"
+authors = "Mya"
+description = '''
+シルクタッチと幸運を1つの道具に両方付けられるようにして、何もないところを右クリックで切り替えられるようにします。
+'''
+
+[[mixins]]
+config = "fortune_touch_switch.mixins.json"
+
+[[dependencies.fortune_touch_switch]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neo_min},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fortune_touch_switch]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mc}]"
+ordering = "NONE"
+side = "BOTH"

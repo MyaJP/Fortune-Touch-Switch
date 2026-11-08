@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "fortune_touch_switch",
+  "version": "${version}",
+  "name": "Fortune Touch Switch",
+  "description": "シルクタッチと幸運を1つの道具に両方付けられるようにして、何もないところを右クリックで切り替えられるようにします。",
+  "authors": ["Mya"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.miyabi.fortunetouchswitch.FortuneTouchSwitch"]
+  },
+  "mixins": ["fortune_touch_switch.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader_min}",
+    "minecraft": "${mc}",
+    "java": ">=${java}",
+    "fabric-api": "*"
+  }
+}
